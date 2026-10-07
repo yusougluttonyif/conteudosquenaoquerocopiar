@@ -57,6 +57,9 @@
             width: 100%;
             height: 100px;
         }
+        #mar1, #mar2, #mar3 {
+            border: 1px solid white;
+        }
     </style>
 </head>
 <body>
@@ -64,10 +67,8 @@
     <button id="cbutton" onclick="cienc()" class="clicked">ciencias</button>
     <button id="pbutton" onclick="portu()">portugues</button>
     <button id="hbutton" onclick="histo()">historia</button></div>
-    <button id="escuro" onclick="document.body.className = 'dark'; document.getElementById('claro').style.display = 'block'; 
-    document.getElementById('escuro').style.display = 'none'">modo escuro</button>
-    <button id="claro" style="display: none;" onclick="document.body.className = ''; document.getElementById('claro').style.display = 'none'; 
-    document.getElementById('escuro').style.display = 'block'">modo claro</button>
+    <button id="escuro" onclick="escurinho()">modo escuro</button>
+    <button id="claro" style="display: none;" onclick="clarinho()">modo claro</button>
     <button onclick="lag()">aperta aqui se tiver lagando</button>
     <div id="ciencias">
         <h1>ELETRICIDADE E SISTEMA NERVOSO</h1>
@@ -105,7 +106,7 @@ Exemplo:</p>
   <marquee behavior="alternate" direction="right">&ominus;</marquee>
 </marquee></div>
 
-<p>um monte de negativo indo pra lado aleatorio</p>
+<p>um monte de negativo indo pra lado aleatorio (a animação pode quebrar)</p>
 
 
   <h2>Diferença de Potencial</h2>
@@ -122,7 +123,7 @@ Exemplo:</p>
   <marquee behavior="scroll">&ominus;</marquee>
   <marquee behavior="alternate" direction="right">&ominus;</marquee>
 </marquee></div>
-   <p>um monte de negativo, de novo, indo pra lugar aleatorio</p>
+   <p>um monte de negativo, de novo, indo pra lugar aleatorio (a animação pode quebrar)</p>
     <br>
     <br>
      &darr;
@@ -148,7 +149,7 @@ Exemplo:</p>
   behavior="scroll"
   style="background-color: black; color: white;">&ominus;</marquee>
   </div>
-       <p>um monte de negativo indo pra direita em harmonia</p>
+       <p>um monte de negativo indo pra direita em harmonia (a animação pode quebrar)</p>
      <p>U<small style="font-size: 10px;">A</small> > U<small style="font-size: 10px;">B</small></p>
      <br>
      <p>A energia irá fluir da região de maior potencial para o de menor potencial.</p>
@@ -292,6 +293,15 @@ Exemplo:</p>
 
 
     <script>
+        document.body.className = localStorage.getItem("modo");
+        if (document.body.className == "dark") {
+            document.getElementById("escuro").style.display = 'none';
+            document.getElementById("claro").style.display = 'block';
+        } else {
+            document.getElementById("escuro").style.display = 'block';
+            document.getElementById("claro").style.display = 'none';
+        }
+
         let notasp = localStorage.getItem("notasp") || '';
         let notash = localStorage.getItem("notash") || '';
         let notasc = localStorage.getItem("notasc") || '';
@@ -311,6 +321,19 @@ Exemplo:</p>
         const portugues = document.getElementById("portugues");
         const ciencia = document.getElementById("ciencias");
 
+
+        function escurinho() {
+            localStorage.setItem("modo", 'dark');
+            document.getElementById("escuro").style.display = "none";
+            document.getElementById("claro").style.display = "block";
+            document.body.className = localStorage.getItem("modo");
+        }
+        function clarinho() {
+            localStorage.setItem("modo", '');
+            document.getElementById("escuro").style.display = "block";
+            document.getElementById("claro").style.display = "none";
+            document.body.className = localStorage.getItem("modo");
+        }
         function portu() {
             cbutton.className = '';
             pbutton.className = 'clicked';
