@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+        }
+        .wrapper{
+            border: 1px solid white;
+            display: inline-flex;
+            position: relative;
+            padding: 30px;
+            max-width: 90%;
+            width: 90%;
+            background-color: black;
+            color: white;
+            place-items: center;
+            justify-content: center;
+        }
+        .example {
+            background-color: transparent;
+            border: 1px solid white;
+            height: 10px;
+            width:10px;
+            border-radius: 10px;
+            font-size: 10px;
+            text-align: center;
+        }
+        .clicked {
+            background-color: black;
+            color: white;
+            border: white 2px solid;
+            outline: 2px solid black;
+            transform: scale(1.1);
+        }
+        button {
+            margin: 10px;
+        }
+        img {
+            transition: 0.3s all ease;
+            place-self: center;
+            align-self: center;
+            display: grid;
+            border: 2px solid #00000080;
+        }
+        img:hover {
+            transform: scale(1.5);
+            opacity: 0.95;
+        }
+        .dark {
+            color: white;
+            background: black;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <button id="cbutton" onclick="cienc()" class="clicked">ciencias</button>
+    <button id="pbutton" onclick="portu()">portugues</button>
+    <button id="hbutton" onclick="histo()">historia</button></div>
+    <button id="escuro" onclick="document.body.className = 'dark'; document.getElementById('claro').style.display = 'block'; 
+    document.getElementById('escuro').style.display = 'none'">modo escuro</button>
+    <button id="claro" style="display: none;" onclick="document.body.className = ''; document.getElementById('claro').style.display = 'none'; 
+    document.getElementById('escuro').style.display = 'block'">modo claro</button>
+    <button onclick="lag()">aperta aqui se tiver lagando</button>
+    <div id="ciencias">
+        <h1>ELETRICIDADE E SISTEMA NERVOSO</h1>
+        <hr>
+        <h2>1- Eletricidade</h2>
+        <p>Ferramentas da natureza associadas a carga eletrica de um movimento.
+               <h3>Carga elétrica</h3>
+                <p>Quantidade de energia presente em um material.</p>
+                <code class="wrapper">Q = n * e</code>
+                <p>Unidade (Coulomb) = 'C'
+                    <br>
+                    n = número de cargas de um material.
+                    <br>
+                    e = Carga elementar de um material.
+
+                    <br><br>
+                    OBS: <span style="text-decoration: underline;" >e = 16*10 <ruby><rt>-10</rt></ruby>C</span>
+                </p>
+                <h3>Subunidades de Cargas</h3>
+                <p>10<ruby><rt>-3</rt></ruby>mC = MiliCoulomb<br>
+                10<ruby><rt>-6</rt>MC = MicroCoulomb</ruby><br>
+                10<ruby><rt>-9</rt>nC = NanoCoulomb</ruby><br>
+                10<ruby><rt>-12</rt></ruby>pC = PicoCoulomb
+<br><br>
+Exemplo:</p>
+<div id="mar1">
+<marquee
+  direction="down"
+  width="100%"
+  height="100px"
+  behavior="alternate"
+  style="background-color: black; color: white;">
+  <marquee behavior="alternate">&ominus;</marquee>
+  <marquee behavior="alternate" direction="up">&ominus;</marquee>
+  <marquee behavior="alternate" direction="right">&ominus;</marquee>
+</marquee></div>
+
+<p>um monte de negativo indo pra lado aleatorio</p>
+
+
+  <h2>Diferença de Potencial</h2>
+  <p>Variação da quantidade de energia entre dois pontos. (U<small style="font-size: 10px;">AB</small>)</p>
+   <p>Exemplo:</p>
+   <div id="mar2">
+   <marquee
+  direction="down"
+  width="100%"
+  height="100px"
+  behavior="alternate"
+  style="background-color: black; color: white;">
+  <marquee behavior="alternate">&ominus;</marquee>
+  <marquee behavior="scroll">&ominus;</marquee>
+  <marquee behavior="alternate" direction="right">&ominus;</marquee>
+</marquee></div>
+   <p>um monte de negativo, de novo, indo pra lugar aleatorio</p>
+    <br>
+    <br>
+     &darr;
+     <br>
+     <br>
+     <div style="background-color: black;" id="mar3">
+     <marquee
+  direction="right"
+  width="100%"
+  height="33px"
+  behavior="scroll"
+  style="background-color: black; color: white;">&ominus;</marquee>
+  <marquee
+  direction="right"
+  width="100%"
+  height="33px"
+  behavior="scroll"
+  style="background-color: black; color: white;">&ominus;</marquee>
+  <marquee
+  direction="right"
+  width="100%"
+  height="33px"
+  behavior="scroll"
+  style="background-color: black; color: white;">&ominus;</marquee>
+  </div>
+       <p>um monte de negativo indo pra direita em harmonia</p>
+     <p>U<small style="font-size: 10px;">A</small> > U<small style="font-size: 10px;">B</small></p>
+     <br>
+     <p>A energia irá fluir da região de maior potencial para o de menor potencial.</p>
+    <h3>Sentido da Corrente</h3>
+     <h4>*Real</h4>
+     <p>U<small style="font-size: 10px;">B</small> ~> U<small style="font-size: 10px;">A</small></p>
+
+     <figure>
+     <div class="wrapper"><p>&ominus;</p><small style="font-size: 10px;">B</small>&rarr;<p>&oplus;</p><small style="font-size: 10px;">A</small></div>
+     <figcaption>uma corrente, onde a energia da corrente passa de B para A, sendo A positivo e B negativo.</figcaption>
+     </figure>
+
+     <h4>*Convencional</h4>
+     <p>U<small style="font-size: 10px;">A</small> ~> U<small style="font-size: 10px;">B</small></p>
+
+     <figure>
+     <div class="wrapper"><p>&ominus;</p><small style="font-size: 10px;">B</small>&larr;<p>&oplus;</p><small style="font-size: 10px;">A</small></div>
+     <figcaption>uma corrente, onde a energia da corrente passa de A para B, sendo A positivo e B negativo.</figcaption>
+     </figure>
+<br><br><br><br>
+<hr>
+<h1>ÓTICA</h1>
+<h3>1- Raio de Luz</h3>
+<p>"Reta orientada que representa, geometricamente, a propagação da luz"</p>
+<p>Feixe de luz "Um conjunto de raios de luz."</p>
+<h3>2- Feixe</h3>
+<img width="200px" height="200px" src="https://files.catbox.moe/nwasn2.png">
+<h3>Meios Fisicos</h3>
+<div class="wrapper" style="display: grid;">
+    <div style="border: 10px solid black; outline: white 1px solid;">
+<h4>Transparente</h4>
+<p>Propagação regular da luz</p>
+</div>
+<div style="border: 10px solid black; outline: white 1px solid;">
+<h4>Translucido</h4>
+<p>Propagação desordenada da luz</p>
+</div>
+<div style="border: 10px solid black; outline: white 1px solid;">
+<h4>Opaco</h4>
+<p>Não apresenta propagação em seu interior</p>
+</div>
+</div>
+
+<h3>Propagação Retilinia da luz</h3>
+<div class="wrapper" style="display: grid;">
+    <div style="border: 10px solid black; outline: white 1px solid;">
+<h4>Sombra ou Umbra</h4>
+<p>Região não iluminada (OBS: total)</p>
+</div>
+<div style="border: 10px solid black; outline: white 1px solid;">
+<h4>Pernumbra</h4>
+<p>Região parcialmente iluminada</p>
+</div>
+</div>
+
+
+<h3>Eclipses</h3>
+<img width="200px" height="200px" src="https://files.catbox.moe/2v0jmg.png">
+
+<h2>3- Câmara Escura</h2>
+<p>Formação de imagem no interior dos objetos que apresenta entradas de luz</p>
+<img width="200px" height="200px" src="https://files.catbox.moe/52ynoq.png">
+<p>Calculo</p>
+<code class="wrapper">I/O = DI/DO</code>
+<p>Exemplo:</p>
+<code class="wrapper">O = 3,5m
+    <br>
+    DI = 40cm
+    <br>
+    I = 3,5cm
+    <br>
+    DO = ?
+    <br><br>
+    3,5cm / 3,5m = 40cm / DO
+    <br>
+    3,5cm / 350cm = 40cm / DO
+    <br>
+    0.01cm = 40cm / DO 
+    <br>
+    DO = 0.01cm . 40cm
+    <br><br>
+    DO = 0.04cm
+</code>
+<br><br><br><br>
+<p>anotações</p>
+<textarea id="notascienc"></textarea>
+<button onclick="save()">salvar</button>
+<p id="lol"></p>
+
+
+
+    </div>
+    <div id="portugues" style="display: none;">
+      <h1>CLARICE INSPECTOR - Características de sua literatura</h1>
+      <hr>
+      <h3>1-Interioridade</h3>
+      <p>Grande importância aos sentimentos, aos pensamentos, às angústias, às dúvidas etc, muitas vezes o que acontece dentro dos personagens se sobressai a ação externa.</p>
+      <h3>2- Cotidiano como ponto de partida</h3>
+      <p>Profundas reflexões do simples.</p>
+      <h3>3- Temas frequentes</h3>
+      <ul>
+        <li>Identidade</li>
+        <li>Solidão</li>
+        <li>Existência</li>
+        <li>Liberdade</li>
+        <li>Condição humana</li>
+        <li>Medo</li>
+        <li>Angústias</li>
+        <li>Sentido da vida</li>
+      </ul>
+</div>
+
+
+<div id="historia" style="display: none;">
+ <h1>A UNIÃO SOVIÉTICA NA GUERRA FRIA - BUROCRACIA E IDEOLOGIA</h1>
+ <hr>
+ <h3>1- Nomenclatura</h3>
+ <p>Durante a Guerra Fria, um grupo de funcionários de alta classe (uma contradição) comunista gozava de direitos e privilégios.</p>
+ <h3>2-  O Heroismo <small>- Conectado à contradição</small></h3>
+ <p>Prega uma sociedade sem classes.</p>
+ <h4>Trostsky</h4>
+ <p>Criou o controle burocrático do estado Soviético. "Transformando numa casta."</p>
+ <h4>Reformas:</h4>
+ <ul>
+    <li>Glasnot: Transparência;</li>
+    <li>Perestroika: Re-estruturação econômica.</li>
+ </ul>
+ <h3>3- KGB <small>(espionagem externa, expressão interna)</small></h3>
+ <p>Gerava falsos relatórios e notícias manipulados para gerar a sensação de um estado rico.</p>
+</div>
+
+
+    <script>
+        let notasc = localStorage.getItem("notasc") || '';
+
+        const notascienc = document.getElementById("notascienc");
+
+        const lol = document.getElementById("lol");
+        const cbutton = document.getElementById("cbutton");
+        const pbutton = document.getElementById("pbutton");
+        const hbutton = document.getElementById("hbutton");
+        const historia = document.getElementById("historia");
+        const portugues = document.getElementById("portugues");
+        const ciencia = document.getElementById("ciencias");
+
+        function portu() {
+            cbutton.className = '';
+            pbutton.className = 'clicked';
+            hbutton.className = '';
+            portugues.style.display = 'block';
+            ciencia.style.display = 'none';
+            historia.style.display = 'none';
+        }
+        function cienc() {
+            cbutton.className = 'clicked';
+            pbutton.className = '';
+            hbutton.className = '';
+            portugues.style.display = 'none';
+            ciencia.style.display = 'block';
+            historia.style.display = 'none';
+        }
+        function histo() {
+            cbutton.className = '';
+            pbutton.className = '';
+            hbutton.className = 'clicked';
+            portugues.style.display = 'none';
+            ciencia.style.display = 'none';
+            historia.style.display = 'block';
+        }
+        function lag() {
+            document.getElementById("mar1").remove();
+            document.getElementById("mar2").remove();
+            document.getElementById("mar3").remove();
+        }
+            function save() {
+            notasc = notascienc.value;
+            localStorage.setItem("notasc", notasc);  
+            }
+            function retrieve() {
+             notascienc.value = notasc;
+            }
+            retrieve();
+    </script>
+    </body>
+</html>
