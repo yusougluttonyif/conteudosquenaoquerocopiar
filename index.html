@@ -58,6 +58,10 @@
             display: -webkit-box;
             border: 2px solid #00000080;
         }
+        img:hover {
+            transform: scale(1.5);
+            opacity: 0.95;
+        }
         .dark {
             color: white;
             background: black;
@@ -113,8 +117,8 @@ Exemplo:</p>
   behavior="alternate"
   style="background-color: black; color: white;">
   <marquee behavior="alternate">&ominus;</marquee>
-  <marquee behavior="alternate" direction="up">&ominus;</marquee>
-  <marquee behavior="alternate" direction="right">&ominus;</marquee>
+  <marquee behavior="scroll">&ominus;</marquee>
+  <marquee behavior="alternate" direction="left">&ominus;</marquee>
 </marquee></div>
 
 <p>um monte de negativo indo pra lado aleatorio (a animação pode quebrar)</p>
