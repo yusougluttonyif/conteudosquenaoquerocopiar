@@ -236,7 +236,6 @@ Exemplo:</p>
 <p>anotações</p>
 <textarea id="notascienc"></textarea>
 <button onclick="save()">salvar</button>
-<p id="lol"></p>
 
 
 
@@ -259,6 +258,10 @@ Exemplo:</p>
         <li>Angústias</li>
         <li>Sentido da vida</li>
       </ul>
+      <br><br><br><br>
+      <p>anotações</p>
+<textarea id="notasportu"></textarea>
+<button onclick="savep()">salvar</button>
 </div>
 
 
@@ -278,15 +281,22 @@ Exemplo:</p>
  </ul>
  <h3>3- KGB <small>(espionagem externa, expressão interna)</small></h3>
  <p>Gerava falsos relatórios e notícias manipulados para gerar a sensação de um estado rico.</p>
+<br><br><br><br>
+<p>anotações</p>
+<textarea id="notashisto"></textarea>
+<button onclick="saveh()">salvar</button>
 </div>
 
 
     <script>
+        let notasp = localStorage.getItem("notasp") || '';
+        let notash = localStorage.getItem("notash") || '';
         let notasc = localStorage.getItem("notasc") || '';
 
         const notascienc = document.getElementById("notascienc");
+        const notasportu = document.getElementById("notasportu");
+        const notashisto = document.getElementById("notashisto");
 
-        const lol = document.getElementById("lol");
         const cbutton = document.getElementById("cbutton");
         const pbutton = document.getElementById("pbutton");
         const hbutton = document.getElementById("hbutton");
@@ -329,6 +339,16 @@ Exemplo:</p>
             }
             function retrieve() {
              notascienc.value = notasc;
+             notasportu.value = notasp;
+             notashisto.value = notash;
+            }
+            function savep() {
+                notasp = notasportu.value;
+                localStorage.setItem("notasp", notasp);
+            }
+            function saveh() {
+                notash = notashisto.value;
+                localStorage.setItem("notash", notash);
             }
             retrieve();
     </script>
