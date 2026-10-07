@@ -233,9 +233,10 @@ Exemplo:</p>
     DO = 0.04cm
 </code>
 <br><br><br><br>
-<p>anotações</p>
+<div id="anotacienc">
+<p>anotações ciências</p>
 <textarea id="notascienc"></textarea>
-<button onclick="save()">salvar</button>
+<button onclick="save()">salvar</button></div>
 
 
 
@@ -259,9 +260,10 @@ Exemplo:</p>
         <li>Sentido da vida</li>
       </ul>
       <br><br><br><br>
-      <p>anotações</p>
+      <div id="anotaportu">
+      <p>anotações português</p>
 <textarea id="notasportu"></textarea>
-<button onclick="savep()">salvar</button>
+<button onclick="savep()">salvar</button></div>
 </div>
 
 
@@ -282,9 +284,10 @@ Exemplo:</p>
  <h3>3- KGB <small>(espionagem externa, expressão interna)</small></h3>
  <p>Gerava falsos relatórios e notícias manipulados para gerar a sensação de um estado rico.</p>
 <br><br><br><br>
-<p>anotações</p>
+<div id="anotahisto">
+<p>anotações historia</p>
 <textarea id="notashisto"></textarea>
-<button onclick="saveh()">salvar</button>
+<button onclick="saveh()">salvar</button></div>
 </div>
 
 
@@ -296,6 +299,10 @@ Exemplo:</p>
         const notascienc = document.getElementById("notascienc");
         const notasportu = document.getElementById("notasportu");
         const notashisto = document.getElementById("notashisto");
+
+        const anotacienc = document.getElementById("anotacienc");
+        const anotaportu = document.getElementById("anotaportu");
+        const anotahisto = document.getElementById("anotahisto");
 
         const cbutton = document.getElementById("cbutton");
         const pbutton = document.getElementById("pbutton");
@@ -311,6 +318,9 @@ Exemplo:</p>
             portugues.style.display = 'block';
             ciencia.style.display = 'none';
             historia.style.display = 'none';
+            anotaportu.style.display = 'block';
+            anotahisto.style.display = 'none';
+            anotacienc.style.display = 'none';
         }
         function cienc() {
             cbutton.className = 'clicked';
@@ -319,6 +329,9 @@ Exemplo:</p>
             portugues.style.display = 'none';
             ciencia.style.display = 'block';
             historia.style.display = 'none';
+            anotaportu.style.display = 'none';
+            anotahisto.style.display = 'none';
+            anotacienc.style.display = 'block';
         }
         function histo() {
             cbutton.className = '';
@@ -327,6 +340,9 @@ Exemplo:</p>
             portugues.style.display = 'none';
             ciencia.style.display = 'none';
             historia.style.display = 'block';
+            anotaportu.style.display = 'none';
+            anotahisto.style.display = 'block';
+            anotacienc.style.display = 'none';
         }
         function lag() {
             document.getElementById("mar1").remove();
