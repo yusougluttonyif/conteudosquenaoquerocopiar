@@ -4,6 +4,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     
     <style>
+        * {transition: all 0.3s ease;}
         h1, h2, h3, h4 {
             font-family: 'Cinzel', serif;
         }
@@ -28,15 +29,24 @@
             font-size: 10px;
             text-align: center;
         }
+        button:hover {
+            transform: scale(1.15);
+        }
         .clicked {
             background-color: black;
             color: white;
             border: white 2px solid;
             outline: 2px solid black;
-            transform: scale(1.1);
+            transform: scale(1.3);
+        }
+        button:active {
+            transition: all 0.1s ease;
+            transform: scale(1.4);
         }
         button {
+            cursor: pointer;
             margin: 10px;
+            border-radius: 100px;
         }
         img {
             transition: 0.3s all ease;
@@ -56,6 +66,8 @@
         textarea {
             width: 100%;
             height: 100px;
+            border: 3px solid black;
+            outline: 3px solid white;
         }
         #mar1, #mar2, #mar3 {
             border: 1px solid white;
