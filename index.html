@@ -53,14 +53,14 @@
             -webkit-box-align: center;
             transition: 0.3s all ease;
             place-self: center;
-            align-self: center;
+            justify-self: center;
             display: grid;
-            display: -webkit-box;
+            position: relative;
             border: 2px solid #00000080;
         }
-        img:hover {
+        img:active {
+            transition: all 0.1s ease;
             transform: scale(1.5);
-            opacity: 0.95;
         }
         .dark {
             color: white;
@@ -79,13 +79,21 @@
 </head>
 <body>
     <div>
-    <button id="cbutton" onclick="cienc()" class="clicked">ciencias</button>
+        <div class="wrapper">
+        <code>
+            NOVIDADES:
+            <br>
+            - as imagens devem aparecer normalmente agora;
+            <br>
+            - assuntos novos em fisica, pois o professor nao explicou certos assuntos.
+        </code></div>
+    <button id="fbutton" onclick="fisic()" class="clicked">fisica</button>
     <button id="pbutton" onclick="portu()">portugues</button>
     <button id="hbutton" onclick="histo()">historia</button></div>
     <button id="escuro" onclick="escurinho()">modo escuro</button>
     <button id="claro" style="display: none;" onclick="clarinho()">modo claro</button>
     <button onclick="lag()">aperta aqui se tiver lagando</button>
-    <div id="ciencias">
+    <div id="fisica">
         <h1>ELETRICIDADE E SISTEMA NERVOSO</h1>
         <hr>
         <h2>1- Eletricidade</h2>
@@ -191,7 +199,7 @@ Exemplo:</p>
 <p>"Reta orientada que representa, geometricamente, a propagação da luz"</p>
 <p>Feixe de luz "Um conjunto de raios de luz."</p>
 <h3>2- Feixe</h3>
-<img width="200px" height="200px" src="https://files.catbox.moe/nwasn2.png">
+<img width="200px" height="200px" src="https://file.garden/aq_0Fg8cibtOL7XF/1116.webp">
 <h3>Meios Fisicos</h3>
 <div class="wrapper" style="display: grid;">
     <div style="border: 10px solid black; outline: white 1px solid;">
@@ -222,11 +230,11 @@ Exemplo:</p>
 
 
 <h3>Eclipses</h3>
-<img width="200px" height="200px" src="https://files.catbox.moe/2v0jmg.png">
+<img width="200px" height="200px" src="https://file.garden/aq_0Fg8cibtOL7XF/Copy%20of%20fonte%20de%20luz.png">
 
 <h2>3- Câmara Escura</h2>
 <p>Formação de imagem no interior dos objetos que apresenta entradas de luz</p>
-<img width="200px" height="200px" src="https://files.catbox.moe/52ynoq.png">
+<img width="200px" height="200px" src="https://file.garden/aq_0Fg8cibtOL7XF/fonte%20de%20luz.png">
 <p>Calculo</p>
 <code class="wrapper">I/O = DI/DO</code>
 <p>Exemplo:</p>
@@ -249,9 +257,29 @@ Exemplo:</p>
     DO = 0.04cm
 </code>
 <br><br><br><br>
-<div id="anotacienc">
-<p>anotações ciências</p>
-<textarea id="notascienc"></textarea>
+<h1>ASSUNTOS ADICIONAIS</h1>
+<h2>espécie de anotação, feita pois o professor não passou os seguintes assuntos.</h2>
+<h3>fontes de luz</h3>
+<p>A luz tem dois tipos de fontes - a <strong>primária</strong> e <strong>secundária</strong>. As fontes primárias tem sua própria luz, como o Sol. As secundárias apenas refletem a luz recebida de uma luz primária.</p>
+<hr>
+<h3>Propriedades da luz</h3>
+<p><strong>REFLEXÃO</strong>: Uma luz que cai sobre uma superfície pode ser refletida. A lei de reflexão afirma que o ângulo da luz caida sobre ela é igual ao ângulo de reflexão.</p>
+<p><strong>REFRAÇÃO</strong>: A luz pode mudar de direção ao passar de um canto pra outro, e isso se chama de refração.</p>
+<p><strong>DIFRAÇÃO</strong>: A luz pode se curvar ao redor de obstáculos ou passar por fendas, produzindo padrões de interfêrencia.</p>
+<p><strong>DISPERSÃO</strong>: A luz branca pode ser separadaa em cores ao passar por um prisma (lembra daquela imagem?) devido a variação do índice de refração com a frequência ou comprimento de onda da luz. </p>
+<hr><h3>PRA CALCULAR A SOMBRA</h3>
+<p>Método trigonométrico (quando se sabe a altura do objeto e o angulo em que a luz cai em relação ao solo)</p>
+<div class="wrapper"><code>Comprimento da Sombra = h/tan(ângulo da fonte de luz em relação ao solo)</code></div>
+<p>Semelhança de triângulos (quando se sabe a distancia entre a fonte de luz e o objeto e a distancia ate o chao ou parede, ou seja, anteparo)</p>
+<div class="wrapper"><code>H/h = D/d
+<br><br>H = Altura ou raio da sombra projetada<br>h = Altura ou raio do objeto opaco<br>D = Distância da fonte de luz até o anteparo<br>d = Distância da fonte de luz ate o objeto</code></div>
+
+
+
+
+<div id="anotafisic">
+<p>anotações fisica</p>
+<textarea id="notasfisic"></textarea>
 <button onclick="save()">salvar</button></div>
 
 
@@ -321,20 +349,20 @@ Exemplo:</p>
         let notash = localStorage.getItem("notash") || '';
         let notasc = localStorage.getItem("notasc") || '';
 
-        const notascienc = document.getElementById("notascienc");
+        const notasfisic = document.getElementById("notasfisic");
         const notasportu = document.getElementById("notasportu");
         const notashisto = document.getElementById("notashisto");
 
-        const anotacienc = document.getElementById("anotacienc");
+        const anotafisic = document.getElementById("anotafisic");
         const anotaportu = document.getElementById("anotaportu");
         const anotahisto = document.getElementById("anotahisto");
 
-        const cbutton = document.getElementById("cbutton");
+        const fbutton = document.getElementById("fbutton");
         const pbutton = document.getElementById("pbutton");
         const hbutton = document.getElementById("hbutton");
         const historia = document.getElementById("historia");
         const portugues = document.getElementById("portugues");
-        const ciencia = document.getElementById("ciencias");
+        const fisica = document.getElementById("fisica");
 
 
         function escurinho() {
@@ -350,37 +378,37 @@ Exemplo:</p>
             document.body.className = localStorage.getItem("modo");
         }
         function portu() {
-            cbutton.className = '';
+            fbutton.className = '';
             pbutton.className = 'clicked';
             hbutton.className = '';
             portugues.style.display = 'block';
-            ciencia.style.display = 'none';
+            fisica.style.display = 'none';
             historia.style.display = 'none';
             anotaportu.style.display = 'block';
             anotahisto.style.display = 'none';
-            anotacienc.style.display = 'none';
+            anotafisic.style.display = 'none';
         }
-        function cienc() {
-            cbutton.className = 'clicked';
+        function fisic() {
+            fbutton.className = 'clicked';
             pbutton.className = '';
             hbutton.className = '';
             portugues.style.display = 'none';
-            ciencia.style.display = 'block';
+            fisica.style.display = 'block';
             historia.style.display = 'none';
             anotaportu.style.display = 'none';
             anotahisto.style.display = 'none';
-            anotacienc.style.display = 'block';
+            anotafisic.style.display = 'block';
         }
         function histo() {
-            cbutton.className = '';
+            fbutton.className = '';
             pbutton.className = '';
             hbutton.className = 'clicked';
             portugues.style.display = 'none';
-            ciencia.style.display = 'none';
+            fisica.style.display = 'none';
             historia.style.display = 'block';
             anotaportu.style.display = 'none';
             anotahisto.style.display = 'block';
-            anotacienc.style.display = 'none';
+            anotafisic.style.display = 'none';
         }
         function lag() {
             document.getElementById("mar1").remove();
@@ -388,11 +416,11 @@ Exemplo:</p>
             document.getElementById("mar3").remove();
         }
             function save() {
-            notasc = notascienc.value;
+            notasc = notasfisic.value;
             localStorage.setItem("notasc", notasc);  
             }
             function retrieve() {
-             notascienc.value = notasc;
+             notasfisic.value = notasc;
              notasportu.value = notasp;
              notashisto.value = notash;
             }
