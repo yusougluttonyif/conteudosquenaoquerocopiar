@@ -92,7 +92,7 @@
     <button id="hbutton" onclick="histo()">historia</button></div>
     <button id="escuro" onclick="escurinho()">modo escuro</button>
     <button id="claro" style="display: none;" onclick="clarinho()">modo claro</button>
-    <button onclick="lag()">aperta aqui se tiver lagando</button>
+    <button id="lagbutton" onclick="lag()">aperta aqui se tiver lagando</button>
     <div id="fisica">
         <h1>ELETRICIDADE E SISTEMA NERVOSO</h1>
         <hr>
@@ -319,7 +319,7 @@ Exemplo:</p>
 <div id="anotafisic">
 <p>anotações fisica</p>
 <textarea id="notasfisic"></textarea>
-<button onclick="save()">salvar</button></div>
+<button id="salvafisica" onclick="save()">salvar</button></div>
 
 
 
@@ -346,7 +346,7 @@ Exemplo:</p>
       <div id="anotaportu">
       <p>anotações português</p>
 <textarea id="notasportu"></textarea>
-<button onclick="savep()">salvar</button></div>
+<button id="salvaportu" onclick="savep()">salvar</button></div>
 </div>
 
 
@@ -370,11 +370,14 @@ Exemplo:</p>
 <div id="anotahisto">
 <p>anotações historia</p>
 <textarea id="notashisto"></textarea>
-<button onclick="saveh()">salvar</button></div>
+<button id="salvahisto" onclick="saveh()">salvar</button></div>
 </div>
 
 
     <script>
+    disappear();
+    appear();
+    
         document.body.className = localStorage.getItem("modo");
         if (document.body.className == "dark") {
             document.getElementById("escuro").style.display = 'none';
@@ -383,6 +386,10 @@ Exemplo:</p>
             document.getElementById("escuro").style.display = 'block';
             document.getElementById("claro").style.display = 'none';
         }
+
+        const salvafisica = document.getElementById("salvafisica");
+        const salvaportu = document.getElementById("salvaportu");
+        const salvahisto = document.getElementById("salvahisto");
 
         let notasp = localStorage.getItem("notasp") || '';
         let notash = localStorage.getItem("notash") || '';
@@ -402,7 +409,7 @@ Exemplo:</p>
         const historia = document.getElementById("historia");
         const portugues = document.getElementById("portugues");
         const fisica = document.getElementById("fisica");
-
+        const lagbutton = document.getElementById("lagbutton")
 
         function escurinho() {
             localStorage.setItem("modo", 'dark');
@@ -417,6 +424,8 @@ Exemplo:</p>
             document.body.className = localStorage.getItem("modo");
         }
         function portu() {
+            disappear();
+            appear();
             fbutton.className = '';
             pbutton.className = 'clicked';
             hbutton.className = '';
@@ -428,6 +437,8 @@ Exemplo:</p>
             anotafisic.style.display = 'none';
         }
         function fisic() {
+            disappear();
+            appear();
             fbutton.className = 'clicked';
             pbutton.className = '';
             hbutton.className = '';
@@ -439,6 +450,8 @@ Exemplo:</p>
             anotafisic.style.display = 'block';
         }
         function histo() {
+            disappear();
+            appear();
             fbutton.className = '';
             pbutton.className = '';
             hbutton.className = 'clicked';
@@ -450,12 +463,15 @@ Exemplo:</p>
             anotafisic.style.display = 'none';
         }
         function lag() {
+            lagbutton.innerHTML = "ja foi pressionado";
             document.getElementById("mar1").remove();
             document.getElementById("mar2").remove();
             document.getElementById("mar3").remove();
         }
             function save() {
             notasc = notasfisic.value;
+            salvafisica.innerHTML = "salvo!"
+            setTimeout(() => {salvafisica.innerHTML = "salvar"}, 2000);
             localStorage.setItem("notasc", notasc);  
             }
             function retrieve() {
@@ -465,13 +481,25 @@ Exemplo:</p>
             }
             function savep() {
                 notasp = notasportu.value;
+                salvaportu.innerHTML = "salvo!"
+            setTimeout(() => {salvaportu.innerHTML = "salvar"}, 2000);
                 localStorage.setItem("notasp", notasp);
             }
             function saveh() {
                 notash = notashisto.value;
+                salvahisto.innerHTML = "salvo!"
+            setTimeout(() => {salvahisto.innerHTML = "salvar"}, 2000);
                 localStorage.setItem("notash", notash);
             }
             retrieve();
+            
+            function appear() {
+                setTimeout(() => {
+                 document.body.style.opacity = "1";
+            }, 300);}
+            function disappear() {
+                document.body.style.opacity = "0";
+            }
     </script>
     </body>
 </html>
