@@ -8,6 +8,19 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cinzel', serif;
         }
+        summary, details {
+            color: white;
+            background: black;
+            padding: 10px 10px;
+            border: white 2px solid;
+            margin: 5px;
+        }
+        summary {
+            cursor: pointer;
+        }
+        details {
+            cursor: cell;
+        }
         .wrapper{
             border: 1px solid white;
             display: inline-flex;
@@ -44,9 +57,11 @@
             transform: scale(1.4);
         }
         button {
-            padding: 5px 30px;
+            padding: 3px 20px;
             cursor: pointer;
             margin: 10px;
+            font-size: 16px;
+            color: black;
             border-radius: 100px;
         }
         img {
@@ -83,9 +98,11 @@
         <code>
             NOVIDADES:
             <br>
-            - as imagens devem aparecer normalmente agora;
+            - Assuntos novos em história;
             <br>
-            - assuntos novos em fisica, pois o professor nao explicou certos assuntos.
+            - Algumas mudanças de estética (poucas);
+            <br>
+            - Assuntos novos de fisica.
         </code></div>
     <button id="fbutton" onclick="fisic()" class="clicked">fisica</button>
     <button id="pbutton" onclick="portu()">portugues</button>
@@ -366,15 +383,39 @@ Exemplo:</p>
  </ul>
  <h3>3- KGB <small>(espionagem externa, expressão interna)</small></h3>
  <p>Gerava falsos relatórios e notícias manipulados para gerar a sensação de um estado rico.</p>
-<br><br><br><br>
-<hr><hr>
+<br>
+<hr><hr><br>
 <h2>MOVIMENTOS PELOS DIREITOS CIVIS NOS ESTADOS UNIDOS</h2>
-<h3>&RightArrow; Rosa Sparks</h3>
-<h3>&RightArrow; Martin Luther King Jr.</h3>
-<h3>&RightArrow; Malcom X.</h3>
+<details><summary>Rosa Sparks</summary>
+<h5>1955, Alabama</h5>
+<ul>
+    <li>Boicote = Paralisação do transporte público local(gerando caos).
+    </li>
+    <li>Marchas pacíficas, manifestações etc.</li>
+</ul></details>
+<details><summary>Martin Luther King Jr.</summary>
+<h5>1963</h5>
+<ul>
+    <li>Marchas sobre Washington
+    </li>
+    <li>Resistência pacífica baseada em <abbr title="Pai da nação indiana" style="cursor:progress;">Gandhi</abbr> ||| Lei dos Direitos Civis = Pediu a Segregação.</li>
+</ul></details>
+<details><summary>Malcon X.</summary>
+<h5>1964, Radical</h5>
+<ul>
+    <li>Nacionalismo negro (Mulçumano);
+    </li>
+    <li>Auto defesa;</li>
+</ul>
+<li>Panteras negras.</li></details>
 <h4>Razões Motoras: Segregação Institucionalizada</h4>
 <ul>
-    <li><strong>Pós Guerra Civil (1865) = </strong></li>
+    <li><strong>Pós Guerra Civil (1865) = </strong>13° Emenda aboliu a escravidão, mas o racismo impediu a igualdade na prática.</li>
+    <hr style="background: red; border-color: red;">
+    <h5 style="color: red;"><strong>KKK (1865)</strong></h5>
+    <li style="color: red;"><strong>Deep South = </strong> Alabama | Georgia | Missisipi: Mantiveram a Segregação até 1960.</li>
+    <li style="color: red;"><strong>Leis Jim Crow = </strong> Sistemas de Custos</li>
+    <hr style="background: red; border-color: red;">
 </ul>
 <div id="anotahisto">
 <p>anotações historia</p>
@@ -480,7 +521,9 @@ Exemplo:</p>
             function save() {
             notasc = notasfisic.value;
             salvafisica.innerHTML = "salvo!"
-            setTimeout(() => {salvafisica.innerHTML = "salvar"}, 2000);
+            salvafisica.className = 'clicked';
+            setTimeout(() => {salvafisica.innerHTML = "salvar"
+            salvafisica.className = '';}, 2000);
             localStorage.setItem("notasc", notasc);  
             }
             function retrieve() {
@@ -491,13 +534,19 @@ Exemplo:</p>
             function savep() {
                 notasp = notasportu.value;
                 salvaportu.innerHTML = "salvo!"
-            setTimeout(() => {salvaportu.innerHTML = "salvar"}, 2000);
+                salvaportu.className = 'clicked';
+            setTimeout(() => {salvaportu.innerHTML = "salvar"
+                salvaportu.className = '';
+            }, 2000);
                 localStorage.setItem("notasp", notasp);
             }
             function saveh() {
                 notash = notashisto.value;
                 salvahisto.innerHTML = "salvo!"
-            setTimeout(() => {salvahisto.innerHTML = "salvar"}, 2000);
+                salvahisto.className = 'clicked';
+            setTimeout(() => {salvahisto.innerHTML = "salvar"
+                salvahisto.className = '';
+            }, 2000);
                 localStorage.setItem("notash", notash);
             }
             retrieve();
