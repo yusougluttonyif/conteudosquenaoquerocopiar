@@ -4,10 +4,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 
     <style>
-        * {transition: all 0.3s ease;}
+        * {transition: all 0.3s ease; font-size: 1.1rem;}
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cinzel', serif;
         }
+        h1 {font-size: 40px;}
         summary, details {
             color: white;
             background: black;
@@ -23,11 +24,9 @@
         }
         .wrapper{
             border: 1px solid white;
-            display: inline-flex;
+            display: grid;
             position: relative;
             padding: 30px;
-            max-width: 90%;
-            width: 90%;
             background-color: black;
             color: white;
             place-items: center;
@@ -65,27 +64,40 @@
             border-radius: 100px;
         }
         img {
-            -webkit-box-align: center;
+            --width: if(media(width < 500px): calc(var(--size) + 10px); else: calc(var(--size) + 60px));
+            --size: 20rem;
             transition: 0.3s all ease;
-            place-self: center;
-            justify-self: center;
-            display: grid;
+            place-self: left;
+            width: var(--width);
+            height: var(--size);
+            justify-self: left;
+            display: block;
             position: relative;
             border: 2px solid #00000080;
         }
         img:active {
             transition: all 0.1s ease;
-            transform: scale(1.5);
-        }
+            width: calc(var(--width) + 3rem);
+            height: calc(var(--size) + 3rem);}
         .dark {
             color: white;
             background: black;
         }
         textarea {
-            width: 100%;
             height: 100px;
+            width: 100dvh;
+            min-width: 20px;
+            place-self: center;
+            display: grid;
+            justify-self: center;
             border: 3px solid black;
             outline: 3px solid white;
+        }
+        #anotafisic, #anotaportu, #anotahisto {
+            display: grid;
+            place-items: center;
+            justify-content: center;
+            position: relative;
         }
         #mar1, #mar2, #mar3 {
             border: 1px solid white;
@@ -94,7 +106,7 @@
 </head>
 <body>
     <div>
-        <div class="wrapper">
+        <div class="wrapper" style="display: grid;">
         <code>
             NOVIDADES:
             <br>
@@ -140,7 +152,6 @@ Exemplo:</p>
 <div id="mar1">
 <marquee
   direction="down"
-  width="100%"
   height="100px"
   behavior="alternate"
   style="background-color: black; color: white;">
@@ -158,7 +169,6 @@ Exemplo:</p>
    <div id="mar2">
    <marquee
   direction="down"
-  width="100%"
   height="100px"
   behavior="alternate"
   style="background-color: black; color: white;">
@@ -175,41 +185,38 @@ Exemplo:</p>
      <div style="background-color: black;" id="mar3">
      <marquee
   direction="right"
-  width="100%"
   height="33px"
   behavior="scroll"
   style="background-color: black; color: white;">&ominus;</marquee>
   <marquee
   direction="right"
-  width="100%"
   height="33px"
   behavior="scroll"
   style="background-color: black; color: white;">&ominus;</marquee>
   <marquee
   direction="right"
-  width="100%"
   height="33px"
   behavior="scroll"
   style="background-color: black; color: white;">&ominus;</marquee>
   </div>
        <p>um monte de negativo indo pra direita em harmonia (a animação pode quebrar)</p>
-     <p>U<small style="font-size: 10px;">A</small> > U<small style="font-size: 10px;">B</small></p>
+     <p style="display: block; place-self: center; justify-self: center; font-size: 30px;">U<small style="font-size: 20px;">A</small> > U<small style="font-size: 20px;">B</small></p>
      <br>
      <p>A energia irá fluir da região de maior potencial para o de menor potencial.</p>
     <h3>Sentido da Corrente</h3>
      <h4>*Real</h4>
-     <p>U<small style="font-size: 10px;">B</small> ~> U<small style="font-size: 10px;">A</small></p>
+     <p style="display: block; place-self: center; justify-self: center; font-size: 30px;">U<small style="font-size: 20px;">B</small> ~> U<small style="font-size: 20px;">A</small></p>
 
      <figure>
-     <div class="wrapper"><p>&ominus;</p><small style="font-size: 10px;">B</small>&rarr;<p>&oplus;</p><small style="font-size: 10px;">A</small></div>
+     <div class="wrapper"><p>&ominus;</p><small style="font-size: 15px;">B</small>&darr;<p>&oplus;</p><small style="font-size: 15px;">A</small></div>
      <figcaption>uma corrente, onde a energia da corrente passa de B para A, sendo A positivo e B negativo.</figcaption>
      </figure>
 
      <h4>*Convencional</h4>
-     <p>U<small style="font-size: 10px;">A</small> ~> U<small style="font-size: 10px;">B</small></p>
+     <p style="display: block; place-self: center; justify-self: center; font-size: 30px;">U<small style="font-size: 20px;">A</small> ~> U<small style="font-size: 20px;">B</small></p>
 
      <figure>
-     <div class="wrapper"><p>&ominus;</p><small style="font-size: 10px;">B</small>&larr;<p>&oplus;</p><small style="font-size: 10px;">A</small></div>
+     <div class="wrapper"><p>&ominus;</p><small style="font-size: 15px;">B</small>&uarr;<p>&oplus;</p><small style="font-size: 15px;">A</small></div>
      <figcaption>uma corrente, onde a energia da corrente passa de A para B, sendo A positivo e B negativo.</figcaption>
      </figure>
 <br><br><br><br>
@@ -338,6 +345,7 @@ Exemplo:</p>
 
 <div id="anotafisic">
 <p>anotações fisica</p>
+<small>(as anotações são salvas somente no seu dispositivo)</small>
 <textarea id="notasfisic"></textarea>
 <button id="salvafisica" onclick="save()">salvar</button></div>
 
@@ -362,9 +370,10 @@ Exemplo:</p>
         <li>Angústias</li>
         <li>Sentido da vida</li>
       </ul>
-      <br><br><br><br>
+      <br><hr><hr>
       <div id="anotaportu">
       <p>anotações português</p>
+      <small>(as anotações são salvas somente no seu dispositivo)</small>
 <textarea id="notasportu"></textarea>
 <button id="salvaportu" onclick="savep()">salvar</button></div>
 </div>
@@ -425,6 +434,7 @@ Exemplo:</p>
 </ul>
 <div id="anotahisto">
 <p>anotações historia</p>
+<small>(as anotações são salvas somente no seu dispositivo)</small>
 <textarea id="notashisto"></textarea>
 <button id="salvahisto" onclick="saveh()">salvar</button></div>
 </div>
@@ -488,7 +498,7 @@ Exemplo:</p>
             portugues.style.display = 'block';
             fisica.style.display = 'none';
             historia.style.display = 'none';
-            anotaportu.style.display = 'block';
+            anotaportu.style.display = 'grid';
             anotahisto.style.display = 'none';
             anotafisic.style.display = 'none';
         }
@@ -503,7 +513,7 @@ Exemplo:</p>
             historia.style.display = 'none';
             anotaportu.style.display = 'none';
             anotahisto.style.display = 'none';
-            anotafisic.style.display = 'block';
+            anotafisic.style.display = 'grid';
         }
         function histo() {
             disappear();
@@ -515,7 +525,7 @@ Exemplo:</p>
             fisica.style.display = 'none';
             historia.style.display = 'block';
             anotaportu.style.display = 'none';
-            anotahisto.style.display = 'block';
+            anotahisto.style.display = 'grid';
             anotafisic.style.display = 'none';
         }
         function lag() {
